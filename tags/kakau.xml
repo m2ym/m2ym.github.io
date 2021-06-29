@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>m2ymの雑記帳 - Posts tagged kakau</title>
+        <link>http://cx4a.org</link>
+        <description><![CDATA[]]></description>
+        <atom:link href="http://cx4a.org/tags/kakau.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Tue, 29 Jun 2021 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Kakau で Lisp コードを書いてみる</title>
+    <link>http://cx4a.org/posts/2021-06-29-writing-lisp-code-in-kakau.html</link>
+    <description><![CDATA[<p>（仮称 Lattic の正式名称が Kakau に決まりました。）</p>
+<p>今回は半分ネタです。 Kakau を使ってコードを書くとどんな感じになるか気になったのでやってみました。言語はなんでも良かったのですが、構造化エディタの歴史に深い関わりのある Lisp を選択しました。まずはスクリーンキャプチャをどうぞ。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><img src="../images/2021-06-29-01.gif" /></p>
+<p>完成形のイメージは以下になります。</p>
+<p><img src="../images/2021-06-29-02.png" /></p>
+<p>何をやっているか簡単に説明します。構造の操作に使っているキーは <code>Enter</code>, <code>Tab</code>, <code>Shift+Tab</code>, <code>Ctrl+i</code> の４つです。最初の３つはそれぞれ、改行、インデント、アンインデントを意味し、通常のアウトラインエディタと同じように動作します。最後の <code>Ctrl+i</code> は、（正確性を犠牲にして言えば）横方向版の改行です。これは他のエディタには存在しない Kakau 特有の操作です。</p>
+<p>式を書く際は、<code>Ctrl+i</code>（横方向版の改行）と <code>Enter</code>（通常の改行） のどちらを使うかその都度選択しながら書いていきます。たとえば、</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>(<span class="kw">or</span> (<span class="op">=</span> n <span class="dv">0</span>) (<span class="op">=</span> n <span class="dv">1</span>))</span></code></pre></div>
+<p>のように一行に収めたいときは <code>Ctrl+i</code> を使い、</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>(<span class="op">+</span> (fib (<span class="op">-</span> n <span class="dv">1</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>   (fib (<span class="op">-</span> n <span class="dv">2</span>)))</span></code></pre></div>
+<p>のようにパターンを表現したいときは <code>Enter</code> を使う、という具合になります。</p>
+<p>経験上、 <code>Ctrl+i</code> と <code>Enter</code> を使い分けるには相当な慣れが必要です。そこで「アウトラインビュー」という機能を提供しています。この機能を使えば、 <code>Ctrl+i</code> で作ったノードも「行」として表示・編集できます。上記の完成形をアウトラインビューで表示すると以下のようになります。</p>
+<p><img src="../images/2021-06-29-03.png" /></p>
+<p>ちゃんと構造化されていることがわかります。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>ちなみに、 <code>(defun fib (n)</code> で <code>fib</code> と <code>(n)</code> を二段インデントしているのは、それらが関数定義本体と揃うのを避けるためです。一方、 <code>(if (or (= n 0) (= n 1))</code> の <code>(or (= n 0) (= n 1))</code> は一段インデントなので then, else に揃っています。</p>
+<p>最近はコードフォーマッタが主流になりつつあるようです。コードの見た目を手で調整するのは時代遅れなのかもしれません。しかしながら、だいぶ端折りますが、コードフォーマッタを利用する場合でも、複雑な見た目を制御可能にするには制御文字の拡張が不可欠です。そしてそれは Kakau が本質的に先取りしているものです。 Kakau によって、コードのみならずさまざまな表現の見た目が現実的なコストで制御可能になったのは、歴史的に見て非常に意義深いことではないかと考える昨今です。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>ビュレットポイントや括弧は適宜無視してください<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>小さなレベルで構造化されていないのは気にしない約束<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>]]></description>
+    <pubDate>Tue, 29 Jun 2021 00:00:00 UT</pubDate>
+    <guid>http://cx4a.org/posts/2021-06-29-writing-lisp-code-in-kakau.html</guid>
+    <dc:creator>m2ym</dc:creator>
+</item>
+
+    </channel>
+</rss>

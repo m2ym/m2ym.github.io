@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>最近作ってるやつ - m2ymの雑記帳</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="alternate" type="application/rss+xml" href="http://cx4a.org/rss.xml" title="m2ymの雑記帳">
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="profile">
+          <!--<div id="logo"><a href="/">m2ymの雑記帳</a></div>-->
+          <img class="profile-icon" src="../images/profile.png" class="profile-icon" />
+          <div class="profile-name">Tomohiro Matsuyama</div>
+          <div class="profile-links">
+            <a href="https://twitter.com/m2ym"><img src="../images/twitter-logo.png" width="24" height="20"" /></a>
+            <a href="https://github.com/m2ym"><img src="../images/github-logo.png" width="24" height="24" /></a>
+          </div>
+        </div>
+        <div id="nav">
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../posts.html">Posts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>最近作ってるやつ</h1>
+        <div class="info">
+  Posted on May 25, 2021
+  
+</div>
+
+<p>最近、こんな感じの Web アプリを作ってる。</p>
+<p><img src="../images/2021-05-25-01.png" /></p>
+<p>これだけ見ると何の変哲もないメモアプリ/アウトライナーなんだけど、他のメモアプリ/アウトライナーではできない（あるいはすごく手間がかかる）こととして、たとえばこんなことができる。</p>
+<p><img src="../images/2021-05-25-02.png" /></p>
+<p>スクリーンショットでは伝わりづらいかもしれない。要するに、縦方向だけでなく横方向にも「行」が書けるようになっている。操作感としては、通常のテキストエディタとほとんど変わりなく、上の例で言えば、「バナナ」のあとの改行が、通常の縦方向の改行ではなく横方向の「改行」になっているだけである。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>同じ機能を使って簡易的なカンバンも書ける。</p>
+<p><img src="../images/2021-05-25-03.png" /></p>
+<p>他にはこんなこともできる。（ちょっと実用性を意識してみた）</p>
+<p><img src="../images/2021-05-25-04.png" /></p>
+<p>アウトライナーをある程度使ったことがある人ならわかると思うけど、これぐらいの粒度でアウトラインを書いていくと表示領域をうまく使えず間延びした感じになってしまう。このアプリなら横方向へ書いていくことができるから、画面のなかにたくさん情報を詰め込むことができる。</p>
+<p>実験中の機能としてはこんなものもある。</p>
+<p><img src="../images/2021-05-25-05.png" /></p>
+<p>これを見たらもはや明白だと思う。このアプリで書けるものはテキストに限定していない。むしろ、もっと積極的にダイアグラム（的なもの）を書けるようにしたいと考えている。</p>
+<p>市場を見てみると、（リッチ）テキストを書くためのアプリや、図やダイアグラムを描くためのアプリは山のようにあるのがわかる。しかしその中間、つまりテキストエディタ的な操作感で、通常のテキストやアウトラインだけでなく、水平アウトラインや表、カンバン、マインドマップ、 UML のような、二次元的な構造を持つテキスト・ダイアグラムを気軽に書いていけるアプリというのは、実はほとんど存在しないことに気付くと思う。</p>
+<p>その理由は単純で、そういったものを作るのがすごく難しいから。俺（達）は詳しいんだ。</p>
+<p>ちなみにこのアプリは個人で開発しているものではなく、共同創業者で代表取締役の <a href="https://twitter.com/pokarim">pokarim</a> と一緒に会社を作って営利目的で開発している。</p>
+<p>最初に「そろそろリリースしたいね」という話題がでてからすごく時間が経ってしまったけど、今回こそ本当にリリースできそうです。まあ、リリースするといっても、さしあたってすごくキャッチーな機能があるわけでもないので、地道に実用的な機能を追加したりユーザーを開拓していく感じになると思う。</p>
+<p>最後に蛇足。最近は Dropbox Paper や Notion のようなブロックベースの構造化エディタ（と呼んでいいのかわからない）が注目されているが、ブロックの実装内容に重きのある「ブロックベースの構造化エディタ」より、単純で可搬性のある二次元に拡張された「テキスト」のほうが長期的には人類の役に立つと思う。</p>
+<p>問題は、短期的に生きていれば長期的にも生きている可能性があるが、短期的に死ねば必然的に長期的にも死ぬという点だ。リリースが遅れた理由の一つに、短期的に死ぬことの恐れがあったと思う。しかしこの期に及んで死ぬことを恐れても仕方がない。ベースの仕様も落ち着いたし、あとは淡々と実用的な機能を作り込んでいこうという心持ちにようやくなったのだろうと思う。とはいっても、メンタルも精神もわりとダメです。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>近いうちにリリースします。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>われわれは「改列」と呼んでいる<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>こういう状況でメンタルも精神も平常ならば完全に狂っているしもはや一種の才能である<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+      </div>
+      <div id="footer">
+        &copy; Tomohiro Matsuyama &lt;m2ym.pub@gmail.com&gt;
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>m2ymの雑記帳 - All posts</title>
+        <link>http://cx4a.org</link>
+        <description><![CDATA[]]></description>
+        <atom:link href="http://cx4a.org/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Tue, 29 Jun 2021 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Kakau で Lisp コードを書いてみる</title>
+    <link>http://cx4a.org/posts/2021-06-29-writing-lisp-code-in-kakau.html</link>
+    <description><![CDATA[<p>（仮称 Lattic の正式名称が Kakau に決まりました。）</p>
+<p>今回は半分ネタです。 Kakau を使ってコードを書くとどんな感じになるか気になったのでやってみました。言語はなんでも良かったのですが、構造化エディタの歴史に深い関わりのある Lisp を選択しました。まずはスクリーンキャプチャをどうぞ。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><img src="../images/2021-06-29-01.gif" /></p>
+<p>完成形のイメージは以下になります。</p>
+<p><img src="../images/2021-06-29-02.png" /></p>
+<p>何をやっているか簡単に説明します。構造の操作に使っているキーは <code>Enter</code>, <code>Tab</code>, <code>Shift+Tab</code>, <code>Ctrl+i</code> の４つです。最初の３つはそれぞれ、改行、インデント、アンインデントを意味し、通常のアウトラインエディタと同じように動作します。最後の <code>Ctrl+i</code> は、（正確性を犠牲にして言えば）横方向版の改行です。これは他のエディタには存在しない Kakau 特有の操作です。</p>
+<p>式を書く際は、<code>Ctrl+i</code>（横方向版の改行）と <code>Enter</code>（通常の改行） のどちらを使うかその都度選択しながら書いていきます。たとえば、</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>(<span class="kw">or</span> (<span class="op">=</span> n <span class="dv">0</span>) (<span class="op">=</span> n <span class="dv">1</span>))</span></code></pre></div>
+<p>のように一行に収めたいときは <code>Ctrl+i</code> を使い、</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode lisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>(<span class="op">+</span> (fib (<span class="op">-</span> n <span class="dv">1</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>   (fib (<span class="op">-</span> n <span class="dv">2</span>)))</span></code></pre></div>
+<p>のようにパターンを表現したいときは <code>Enter</code> を使う、という具合になります。</p>
+<p>経験上、 <code>Ctrl+i</code> と <code>Enter</code> を使い分けるには相当な慣れが必要です。そこで「アウトラインビュー」という機能を提供しています。この機能を使えば、 <code>Ctrl+i</code> で作ったノードも「行」として表示・編集できます。上記の完成形をアウトラインビューで表示すると以下のようになります。</p>
+<p><img src="../images/2021-06-29-03.png" /></p>
+<p>ちゃんと構造化されていることがわかります。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>ちなみに、 <code>(defun fib (n)</code> で <code>fib</code> と <code>(n)</code> を二段インデントしているのは、それらが関数定義本体と揃うのを避けるためです。一方、 <code>(if (or (= n 0) (= n 1))</code> の <code>(or (= n 0) (= n 1))</code> は一段インデントなので then, else に揃っています。</p>
+<p>最近はコードフォーマッタが主流になりつつあるようです。コードの見た目を手で調整するのは時代遅れなのかもしれません。しかしながら、だいぶ端折りますが、コードフォーマッタを利用する場合でも、複雑な見た目を制御可能にするには制御文字の拡張が不可欠です。そしてそれは Kakau が本質的に先取りしているものです。 Kakau によって、コードのみならずさまざまな表現の見た目が現実的なコストで制御可能になったのは、歴史的に見て非常に意義深いことではないかと考える昨今です。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>ビュレットポイントや括弧は適宜無視してください<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>小さなレベルで構造化されていないのは気にしない約束<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>]]></description>
+    <pubDate>Tue, 29 Jun 2021 00:00:00 UT</pubDate>
+    <guid>http://cx4a.org/posts/2021-06-29-writing-lisp-code-in-kakau.html</guid>
+    <dc:creator>m2ym</dc:creator>
+</item>
+<item>
+    <title>ヒント機能をどうするか [lattic]</title>
+    <link>http://cx4a.org/posts/2021-06-01-lattic-hint.html</link>
+    <description><![CDATA[<p>開発中のアプリについて。一応製品名も決まっていて、 lattic という。個人的にまだあまりしっくりきていないけど、コードネームなり製品名がないと何の記事なのか見分けづらいから公表しました。タイトルにタグを入れておいたので興味のない人はタグを見てスルーしてください。</p>
+<p>今回はヒント機能について取り上げる。ここでいうヒント機能というのは、何らかの視覚的手段を用いることで、文書構造の把握を補助する機能のことを指す。</p>
+<p>ベタな構造化エディタでは構造そのものを操作対象とするため、ヒント機能のようなものはそもそも不要である。ただ、そうすると別の問題が出てくる。キーボードで操作するのが異常に難しくなるのだ。マウスなどのポインティングデバイスならあるいは不可能でないと思う。でも、マウスでポチポチなんかやってられん。そういうわけで lattic ではキーボードでの操作性（≒プレーンテキストエディタの使いやすさ）と構造編集機能を両立する方針を採っている。</p>
+<p>具体的にはたとえば、文書中のどの位置でも Backspace が機能するといったことが保証されている。文書に構造が入っているにも関わらず、である。普通のテキストエディタを使っている人からすれば「何を当たり前のこと言ってんだ」となると思うが、構造化エディタでこの性質が保証されているのは自分が知る限り一つもない。よくあるのはこんなやつだ―表の中身を（ある程度）保持したまま、表だけを解除しようと思って表の先頭で Backspace を押してみたが何も起きなかった、あるいは表がまるごと削除されてしまった―違う、そうじゃない。</p>
+<p>この辺りの詳細は別記事に譲るが、とにかく、上の性質を保証するためには構造を直接の操作対象とせず、ユーザーにとって暗黙的なものにしなければならない。そのため、構造の把握を助けるヒント機能が重要になる。自分はもはやヒント機能なしである程度操作できるが、初めて使う人はヒント機能なしではおそらく何が起きているのか理解できないと思う。</p>
+<p>このヒント機能は開発初期からずっと悩みの種で、（これからもそうだと思うが）正直どうすればいいかわからない。ヒントが強いと窮屈な印象を与えるし、かといってヒントが弱いと構造がよくわからない。今のところ以下のようなヒントに落ち着きつつある。（文書の先頭から↓を押し続けて末尾まで移動する図）</p>
+<p><img src="../images/2021-06-01-01.gif" /></p>
+<p>罫線が形成されるグリッドを表わし、罫線の色がインデントレベルを表わしている。この方式は愚直でわかりやすくはあるけれども、カーソルの周辺に罫線が表示されるため少し窮屈な印象を与える。</p>
+<p>別の方式としてこんなものも実験してみている。</p>
+<p><img src="../images/2021-06-01-02.gif" /></p>
+<p>こちらはエディタの「へり」を利用して、カーソル周辺の構造を可視化している。罫線を表示する方式ほどわかりやすくはないけれど、ノイズが少ないため編集に集中できるのではないかと思う。周辺視野で構造の把握が可能ならば、この目論見も悪くなさそうだ。自分で試した感じではなんかうまくいきそうだった。</p>
+<p>もちろん人それぞれ好みがあるので、最終的にはヒントの方式をたくさん用意してオプションで切り替えてもらうことになると思う。でもデフォルトを何にするか決めないといけない。</p>
+<p>どちらが好みか教えてもらえれば助かります。意見・感想ももちろん歓迎です。</p>
+<ul>
+<li>メール: m2ym.pub@gmail.com</li>
+<li>Twitter: <a href="https://twitter.com/m2ym">m2ym</a></li>
+</ul>]]></description>
+    <pubDate>Tue, 01 Jun 2021 00:00:00 UT</pubDate>
+    <guid>http://cx4a.org/posts/2021-06-01-lattic-hint.html</guid>
+    <dc:creator>m2ym</dc:creator>
+</item>
+<item>
+    <title>最近作ってるやつ</title>
+    <link>http://cx4a.org/posts/2021-05-25-what-im-working-on-now.html</link>
+    <description><![CDATA[<p>最近、こんな感じの Web アプリを作ってる。</p>
+<p><img src="../images/2021-05-25-01.png" /></p>
+<p>これだけ見ると何の変哲もないメモアプリ/アウトライナーなんだけど、他のメモアプリ/アウトライナーではできない（あるいはすごく手間がかかる）こととして、たとえばこんなことができる。</p>
+<p><img src="../images/2021-05-25-02.png" /></p>
+<p>スクリーンショットでは伝わりづらいかもしれない。要するに、縦方向だけでなく横方向にも「行」が書けるようになっている。操作感としては、通常のテキストエディタとほとんど変わりなく、上の例で言えば、「バナナ」のあとの改行が、通常の縦方向の改行ではなく横方向の「改行」になっているだけである。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>同じ機能を使って簡易的なカンバンも書ける。</p>
+<p><img src="../images/2021-05-25-03.png" /></p>
+<p>他にはこんなこともできる。（ちょっと実用性を意識してみた）</p>
+<p><img src="../images/2021-05-25-04.png" /></p>
+<p>アウトライナーをある程度使ったことがある人ならわかると思うけど、これぐらいの粒度でアウトラインを書いていくと表示領域をうまく使えず間延びした感じになってしまう。このアプリなら横方向へ書いていくことができるから、画面のなかにたくさん情報を詰め込むことができる。</p>
+<p>実験中の機能としてはこんなものもある。</p>
+<p><img src="../images/2021-05-25-05.png" /></p>
+<p>これを見たらもはや明白だと思う。このアプリで書けるものはテキストに限定していない。むしろ、もっと積極的にダイアグラム（的なもの）を書けるようにしたいと考えている。</p>
+<p>市場を見てみると、（リッチ）テキストを書くためのアプリや、図やダイアグラムを描くためのアプリは山のようにあるのがわかる。しかしその中間、つまりテキストエディタ的な操作感で、通常のテキストやアウトラインだけでなく、水平アウトラインや表、カンバン、マインドマップ、 UML のような、二次元的な構造を持つテキスト・ダイアグラムを気軽に書いていけるアプリというのは、実はほとんど存在しないことに気付くと思う。</p>
+<p>その理由は単純で、そういったものを作るのがすごく難しいから。俺（達）は詳しいんだ。</p>
+<p>ちなみにこのアプリは個人で開発しているものではなく、共同創業者で代表取締役の <a href="https://twitter.com/pokarim">pokarim</a> と一緒に会社を作って営利目的で開発している。</p>
+<p>最初に「そろそろリリースしたいね」という話題がでてからすごく時間が経ってしまったけど、今回こそ本当にリリースできそうです。まあ、リリースするといっても、さしあたってすごくキャッチーな機能があるわけでもないので、地道に実用的な機能を追加したりユーザーを開拓していく感じになると思う。</p>
+<p>最後に蛇足。最近は Dropbox Paper や Notion のようなブロックベースの構造化エディタ（と呼んでいいのかわからない）が注目されているが、ブロックの実装内容に重きのある「ブロックベースの構造化エディタ」より、単純で可搬性のある二次元に拡張された「テキスト」のほうが長期的には人類の役に立つと思う。</p>
+<p>問題は、短期的に生きていれば長期的にも生きている可能性があるが、短期的に死ねば必然的に長期的にも死ぬという点だ。リリースが遅れた理由の一つに、短期的に死ぬことの恐れがあったと思う。しかしこの期に及んで死ぬことを恐れても仕方がない。ベースの仕様も落ち着いたし、あとは淡々と実用的な機能を作り込んでいこうという心持ちにようやくなったのだろうと思う。とはいっても、メンタルも精神もわりとダメです。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>近いうちにリリースします。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>われわれは「改列」と呼んでいる<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>こういう状況でメンタルも精神も平常ならば完全に狂っているしもはや一種の才能である<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>]]></description>
+    <pubDate>Tue, 25 May 2021 00:00:00 UT</pubDate>
+    <guid>http://cx4a.org/posts/2021-05-25-what-im-working-on-now.html</guid>
+    <dc:creator>m2ym</dc:creator>
+</item>
+
+    </channel>
+</rss>
