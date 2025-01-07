@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tljqxsdm> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://m2ym.github.com/posts/2021-05-25-what-im-working-on-now/"><!-- Primary Meta Tags --><title>最近作ってるやつ - m2ymの雑記帳</title><meta name="title" content="最近作ってるやつ - m2ymの雑記帳"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://m2ym.github.com/posts/2021-05-25-what-im-working-on-now/"><meta property="og:title" content="最近作ってるやつ - m2ymの雑記帳"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://m2ym.github.com/posts/2021-05-25-what-im-working-on-now/"><meta property="twitter:title" content="最近作ってるやつ - m2ymの雑記帳"><style>html{font-size:16px;margin:0;padding:0}body{margin:0;padding:0}main{margin:3rem auto;width:720px}#nav>ul{padding:0;list-style:none}#nav li{margin:12px 0}#nav a{color:#666;font-size:large;text-decoration:none}#nav a:hover{color:#000}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}header[data-astro-cid-3ef6ksr2]{margin:0 auto;padding:1rem 0px;width:720px}nav[data-astro-cid-3ef6ksr2]{display:flex;gap:1rem}footer[data-astro-cid-sz7xmlte]{margin:0 auto;padding:1rem 0px;width:720px}.social-links[data-astro-cid-sz7xmlte]{display:flex;gap:1rem;padding:.5rem 0px}
+.pub-date[data-astro-cid-tljqxsdm]{font-size:14px;color:#666;margin-bottom:2rem}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style></head> <body data-astro-cid-tljqxsdm> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2>Home</a> <a href="/posts" data-astro-cid-3ef6ksr2>Posts</a> <a href="/rss.xml" data-astro-cid-3ef6ksr2>RSS</a> </nav> </header>  <main data-astro-cid-tljqxsdm> <article data-astro-cid-tljqxsdm> <h1 data-astro-cid-tljqxsdm>最近作ってるやつ</h1> <div class="pub-date" data-astro-cid-tljqxsdm>Posted on <time datetime="2021-05-25T00:00:00.000Z"> May 25, 2021 </time></div> <p>最近、こんな感じの Web アプリを作ってる。</p>
+<p><img src="/images/2021-05-25-01.png" alt=""></p>
+<p>これだけ見ると何の変哲もないメモアプリ/アウトライナーなんだけど、他のメモアプリ/アウトライナーではできない（あるいはすごく手間がかかる）こととして、たとえばこんなことができる。</p>
+<p><img src="/images/2021-05-25-02.png" alt=""></p>
+<p>スクリーンショットでは伝わりづらいかもしれない。要するに、縦方向だけでなく横方向にも「行」が書けるようになっている。操作感としては、通常のテキストエディタとほとんど変わりなく、上の例で言えば、「バナナ」のあとの改行が、通常の縦方向の改行ではなく横方向の「改行」になっているだけである。^[われわれは「改列」と呼んでいる]</p>
+<p>同じ機能を使って簡易的なカンバンも書ける。</p>
+<p><img src="/images/2021-05-25-03.png" alt=""></p>
+<p>他にはこんなこともできる。（ちょっと実用性を意識してみた）</p>
+<p><img src="/images/2021-05-25-04.png" alt=""></p>
+<p>アウトライナーをある程度使ったことがある人ならわかると思うけど、これぐらいの粒度でアウトラインを書いていくと表示領域をうまく使えず間延びした感じになってしまう。このアプリなら横方向へ書いていくことができるから、画面のなかにたくさん情報を詰め込むことができる。</p>
+<p>実験中の機能としてはこんなものもある。</p>
+<p><img src="/images/2021-05-25-05.png" alt=""></p>
+<p>これを見たらもはや明白だと思う。このアプリで書けるものはテキストに限定していない。むしろ、もっと積極的にダイアグラム（的なもの）を書けるようにしたいと考えている。</p>
+<p>市場を見てみると、（リッチ）テキストを書くためのアプリや、図やダイアグラムを描くためのアプリは山のようにあるのがわかる。しかしその中間、つまりテキストエディタ的な操作感で、通常のテキストやアウトラインだけでなく、水平アウトラインや表、カンバン、マインドマップ、 UML のような、二次元的な構造を持つテキスト・ダイアグラムを気軽に書いていけるアプリというのは、実はほとんど存在しないことに気付くと思う。</p>
+<p>その理由は単純で、そういったものを作るのがすごく難しいから。俺（達）は詳しいんだ。</p>
+<p>ちなみにこのアプリは個人で開発しているものではなく、共同創業者で代表取締役の <a href="https://twitter.com/pokarim">pokarim</a> と一緒に会社を作って営利目的で開発している。</p>
+<p>最初に「そろそろリリースしたいね」という話題がでてからすごく時間が経ってしまったけど、今回こそ本当にリリースできそうです。まあ、リリースするといっても、さしあたってすごくキャッチーな機能があるわけでもないので、地道に実用的な機能を追加したりユーザーを開拓していく感じになると思う。</p>
+<p>最後に蛇足。最近は Dropbox Paper や Notion のようなブロックベースの構造化エディタ（と呼んでいいのかわからない）が注目されているが、ブロックの実装内容に重きのある「ブロックベースの構造化エディタ」より、単純で可搬性のある二次元に拡張された「テキスト」のほうが長期的には人類の役に立つと思う。</p>
+<p>問題は、短期的に生きていれば長期的にも生きている可能性があるが、短期的に死ねば必然的に長期的にも死ぬという点だ。リリースが遅れた理由の一つに、短期的に死ぬことの恐れがあったと思う。しかしこの期に及んで死ぬことを恐れても仕方がない。ベースの仕様も落ち着いたし、あとは淡々と実用的な機能を作り込んでいこうという心持ちにようやくなったのだろうと思う。とはいっても、メンタルも精神もわりとダメです。^[こういう状況でメンタルも精神も平常ならば完全に狂っているしもはや一種の才能である]</p>
+<p>近いうちにリリースします。</p> </article> </main> <footer data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://x.com/m2ym" data-astro-cid-sz7xmlte>X</a> <a href="https://github.com/m2ym" data-astro-cid-sz7xmlte>GitHub</a> </div>
+&copy; 2025 m2ym
+</footer>  </body></html>

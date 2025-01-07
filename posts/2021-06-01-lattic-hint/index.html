@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-tljqxsdm> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.1.1"><!-- Canonical URL --><link rel="canonical" href="https://m2ym.github.com/posts/2021-06-01-lattic-hint/"><!-- Primary Meta Tags --><title>ヒント機能をどうするか - m2ymの雑記帳</title><meta name="title" content="ヒント機能をどうするか - m2ymの雑記帳"><meta name="description"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://m2ym.github.com/posts/2021-06-01-lattic-hint/"><meta property="og:title" content="ヒント機能をどうするか - m2ymの雑記帳"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://m2ym.github.com/posts/2021-06-01-lattic-hint/"><meta property="twitter:title" content="ヒント機能をどうするか - m2ymの雑記帳"><style>html{font-size:16px;margin:0;padding:0}body{margin:0;padding:0}main{margin:3rem auto;width:720px}#nav>ul{padding:0;list-style:none}#nav li{margin:12px 0}#nav a{color:#666;font-size:large;text-decoration:none}#nav a:hover{color:#000}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}header[data-astro-cid-3ef6ksr2]{margin:0 auto;padding:1rem 0px;width:720px}nav[data-astro-cid-3ef6ksr2]{display:flex;gap:1rem}footer[data-astro-cid-sz7xmlte]{margin:0 auto;padding:1rem 0px;width:720px}.social-links[data-astro-cid-sz7xmlte]{display:flex;gap:1rem;padding:.5rem 0px}
+.pub-date[data-astro-cid-tljqxsdm]{font-size:14px;color:#666;margin-bottom:2rem}
+[data-astro-image]{width:100%;height:auto;object-fit:var(--fit);object-position:var(--pos);aspect-ratio:var(--w) / var(--h)}[data-astro-image=responsive]{max-width:calc(var(--w) * 1px);max-height:calc(var(--h) * 1px)}[data-astro-image=fixed]{width:calc(var(--w) * 1px);height:calc(var(--h) * 1px)}
+</style></head> <body data-astro-cid-tljqxsdm> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2>Home</a> <a href="/posts" data-astro-cid-3ef6ksr2>Posts</a> <a href="/rss.xml" data-astro-cid-3ef6ksr2>RSS</a> </nav> </header>  <main data-astro-cid-tljqxsdm> <article data-astro-cid-tljqxsdm> <h1 data-astro-cid-tljqxsdm>ヒント機能をどうするか</h1> <div class="pub-date" data-astro-cid-tljqxsdm>Posted on <time datetime="2021-06-01T00:00:00.000Z"> Jun 1, 2021 </time></div> <p>開発中のアプリについて。一応製品名も決まっていて、 lattic という。個人的にまだあまりしっくりきていないけど、コードネームなり製品名がないと何の記事なのか見分けづらいから公表しました。タイトルにタグを入れておいたので興味のない人はタグを見てスルーしてください。</p>
+<p>今回はヒント機能について取り上げる。ここでいうヒント機能というのは、何らかの視覚的手段を用いることで、文書構造の把握を補助する機能のことを指す。</p>
+<p>ベタな構造化エディタでは構造そのものを操作対象とするため、ヒント機能のようなものはそもそも不要である。ただ、そうすると別の問題が出てくる。キーボードで操作するのが異常に難しくなるのだ。マウスなどのポインティングデバイスならあるいは不可能でないと思う。でも、マウスでポチポチなんかやってられん。そういうわけで lattic ではキーボードでの操作性（≒プレーンテキストエディタの使いやすさ）と構造編集機能を両立する方針を採っている。</p>
+<p>具体的にはたとえば、文書中のどの位置でも Backspace が機能するといったことが保証されている。文書に構造が入っているにも関わらず、である。普通のテキストエディタを使っている人からすれば「何を当たり前のこと言ってんだ」となると思うが、構造化エディタでこの性質が保証されているのは自分が知る限り一つもない。よくあるのはこんなやつだ―表の中身を（ある程度）保持したまま、表だけを解除しようと思って表の先頭で Backspace を押してみたが何も起きなかった、あるいは表がまるごと削除されてしまった―違う、そうじゃない。</p>
+<p>この辺りの詳細は別記事に譲るが、とにかく、上の性質を保証するためには構造を直接の操作対象とせず、ユーザーにとって暗黙的なものにしなければならない。そのため、構造の把握を助けるヒント機能が重要になる。自分はもはやヒント機能なしである程度操作できるが、初めて使う人はヒント機能なしではおそらく何が起きているのか理解できないと思う。</p>
+<p>このヒント機能は開発初期からずっと悩みの種で、（これからもそうだと思うが）正直どうすればいいかわからない。ヒントが強いと窮屈な印象を与えるし、かといってヒントが弱いと構造がよくわからない。今のところ以下のようなヒントに落ち着きつつある。（文書の先頭から↓を押し続けて末尾まで移動する図）</p>
+<p><img src="/images/2021-06-01-01.gif" alt=""></p>
+<p>罫線が形成されるグリッドを表わし、罫線の色がインデントレベルを表わしている。この方式は愚直でわかりやすくはあるけれども、カーソルの周辺に罫線が表示されるため少し窮屈な印象を与える。</p>
+<p>別の方式としてこんなものも実験してみている。</p>
+<p><img src="/images/2021-06-01-02.gif" alt=""></p>
+<p>こちらはエディタの「へり」を利用して、カーソル周辺の構造を可視化している。罫線を表示する方式ほどわかりやすくはないけれど、ノイズが少ないため編集に集中できるのではないかと思う。周辺視野で構造の把握が可能ならば、この目論見も悪くなさそうだ。自分で試した感じではなんかうまくいきそうだった。</p>
+<p>もちろん人それぞれ好みがあるので、最終的にはヒントの方式をたくさん用意してオプションで切り替えてもらうことになると思う。でもデフォルトを何にするか決めないといけない。</p>
+<p>どちらが好みか教えてもらえれば助かります。意見・感想ももちろん歓迎です。</p>
+<ul>
+<li>メール: <a href="mailto:m2ym.pub@gmail.com">m2ym.pub@gmail.com</a></li>
+<li>Twitter: <a href="https://twitter.com/m2ym">m2ym</a></li>
+</ul> </article> </main> <footer data-astro-cid-sz7xmlte> <div class="social-links" data-astro-cid-sz7xmlte> <a href="https://x.com/m2ym" data-astro-cid-sz7xmlte>X</a> <a href="https://github.com/m2ym" data-astro-cid-sz7xmlte>GitHub</a> </div>
+&copy; 2025 m2ym
+</footer>  </body></html>
